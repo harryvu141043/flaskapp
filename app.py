@@ -3,7 +3,7 @@ import user,dbuser,db
 app = Flask(__name__)
 app.config["SECRET_KEY"]="ailanguoiay"
 
-@app.route('/home',methods=["GET","POST"])
+@app.route('/',methods=["GET","POST"])
 def home():
     if request.method=="GET":
         return render_template("home.html")
