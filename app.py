@@ -7,10 +7,6 @@ app.config["SECRET_KEY"]="ailanguoiay"
 def home():
     if request.method=="GET":
         return render_template("home.html")
-    elif request.method=="POST":
-        feedback=request.form["feedback"]
-        dbuser.feedback(feedback)
-        return "cảm ơn"
 
 @app.route('/interface')
 def interface():
