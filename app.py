@@ -183,7 +183,7 @@ def up():
 @app.route("/logout")
 def logout():
     del session["token"]
-    redirect("/login")
+    return redirect("/login")
 @app.route("/feed")
 def feed():
     return render_template("feed.html")
