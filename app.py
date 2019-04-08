@@ -47,11 +47,11 @@ def signin():
                 "password": str(p),
             }
             db.user_collection.insert_one(new_user)
-            return render_template("home.html")
+            return render_template("good.html")
         elif user.find_by_username(str(u))!= None:
             return render_template("errorsign.html")
         if str(u)==None:
-            return "kkk"
+            return render_template("errorsign.html")
         
 @app.route("/add", methods = ["GET","POST"])
 def add():
@@ -191,5 +191,8 @@ def logout():
 @app.route("/feed")
 def feed():
     return render_template("feed.html")
+@app.route("/good")
+def good():
+    return render_template("good.html")
 if __name__ == '__main__':
   app.run(debug=True)
