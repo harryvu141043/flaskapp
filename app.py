@@ -3,10 +3,9 @@ import user,dbuser,db
 app = Flask(__name__)
 app.config["SECRET_KEY"]="ailanguoiay"
 
-@app.route('/',methods=["GET","POST"])
+@app.route('/')
 def home():
-    if request.method=="GET":
-        return render_template("home.html")
+    return render_template("home.html")
 
 @app.route('/interface')
 def interface():
@@ -15,6 +14,8 @@ def interface():
 
 @app.route("/login", methods = ["GET","POST"])
 def login():
+    if "token" in session:
+        return redirect("/add")
     if request.method == "GET":
         return render_template("login2.html")
     elif request.method == "POST":
